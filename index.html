@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+  </head>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+      text-align: center;
+    }
+    h1 {
+      color: #00b8a9;
+      font-size: 40px;
+      font-weight: 900;
+      margin: 10px auto 3px;
+    }
+    h2 {
+      color: #ffde7d;
+      font-size: 22px;
+      padding: 15px auto;
+    }
+    h3 {
+      color: black;
+      font-size: 18px;
+    }
+
+    button {
+      display: block;
+      margin: 20px auto;
+      border: 1px solid #00b8a9;
+      background: #00b8a9;
+      color: #fff;
+      font-size: 16px;
+      line-height: 22px;
+      padding: 16px 24px;
+      border-radius: 30px;
+      transition: all 200ms ease;
+      box-shadow: rgb(37 39 89 / 8%) 0px 8px 8px 0;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: white;
+      color: #00b8a9;
+      border-style: solid;
+      border-color: #00b8a9;
+    }
+    .general-temp {
+      color: black;
+      font-size: 30px;
+      font-weight: 500;
+      margin: auto auto 20px auto;
+    }
+    .max-general {
+      font-weight: 800;
+    }
+    .daily {
+      color: black;
+      transition: all 300ms ease-in-out;
+      max-width: 500px;
+      margin: 0 auto;
+      padding-bottom: 5px;
+      padding-top: 5px;
+      /*
+      margin: 10px 500px 10px 500px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);*/
+    }
+    .daily:hover {
+      border: #f8f3d4;
+      background-color: #f8f3d4;
+      border-radius: 2px 2px 2px 2px;
+    }
+    .max-daily {
+      color: #f6416c;
+    }
+  </style>
+  <body>
+    <h1>
+      ⛅<br />
+      Currently 21° in Springfield
+    </h1>
+    <div class="general-temp">
+      13° /
+      <span class="max-general">23°</span>
+    </div>
+    <div class="daily">
+      <h2>🌧 Tomorrow</h2>
+      <h3>
+        10° /
+        <span class="max-daily">22°</span>
+      </h3>
+    </div>
+    <div class="daily">
+      <h2>🌫 Saturday</h2>
+      <h3>
+        15° /
+        <span class="max-daily">17°</span>
+      </h3>
+    </div>
+    <div class="daily">
+      <h2>☀️ Sunday</h2>
+      <h3>
+        25° /
+        <span class="max-daily">28°</span>
+      </h3>
+    </div>
+    <button>Change City</button>
+    <div
+      style="
+        font-family: monospace;
+        font-size: 15px;
+        margin: 0px auto 20px auto;
+      "
+    >
+      Coded by Nguyet Tang
+    </div>
+
+    <script>
+      function changeCity() {
+        let city = prompt("Hi Gorgeous! Which city do you live in?");
+        let temperature = prompt("What temperature is it there at the moment?");
+        let weatherIcon = document.querySelector(".emoji");
+        let report = document.querySelector("h1");
+        if (temperature <= 0) {
+          /*weatherIcon.innerHTML = "❄ ";*/
+          report.innerHTML = "❄<br>Currently " + temperature + " °C in " + city;
+        } else {
+          if (temperature >= 30) {
+            /*weatherIcon.innerHTML = "☀";*/
+            report.innerHTML =
+              "☀<br>Currently " + temperature + " °C in " + city;
+          } else {
+            /*weatherIcon.innerHTML = "🌤";*/
+            report.innerHTML =
+              "🌤<br>Currently " + temperature + " °C in " + city;
+          }
+        }
+      }
+
+      let changeButton = document.querySelector("button");
+      changeButton.addEventListener("click", changeCity);
+    </script>
+  </body>
+</html>
